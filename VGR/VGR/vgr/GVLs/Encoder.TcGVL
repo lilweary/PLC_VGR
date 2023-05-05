@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="Encoder" Id="{4c20691e-8025-47c0-90ac-b52865a363a2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	countEncoderVertical  AT %I* : UINT;
+	countEncoderHorizontal  AT %I* : UINT;
+	countEncoderRotate  AT %I* : UINT;
+	setCounterValueVertical AT %Q* : UINT := 0;
+	setCounterVertical AT %Q* : BOOL;
+	setCounterValueHorizontal AT %Q* : UINT := 0;
+	setCounterHorizontal AT %Q* : BOOL;
+	setCounterValueRotate AT %Q* : UINT := 0;
+	setCounterRotate AT %Q* : BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

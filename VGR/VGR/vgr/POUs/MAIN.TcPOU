@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{d01eaaea-b107-454d-84d1-9666cf5605a2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+Encoder.setCounterHorizontal := FALSE;
+Encoder.setCounterRotate := FALSE;
+Encoder.setCounterVertical := FALSE;
+
+VGR_State();
+(*
+IF StartStop.IX_START THEN
+VGR.QW_VGR_PWM_Vertical_Control := 32;
+VGR.QW_VGR_PWM_Vertical_M1 := 3000;
+VGR.QX_VGR_M1_VerticalAxisDown_Q2 := TRUE;
+ELSIF NOT StartStop.IX_STOP THEN
+VGR.QW_VGR_PWM_Vertical_Control := 32;
+VGR.QW_VGR_PWM_Vertical_M1 := 3000;
+VGR.QX_VGR_M1_VerticalAxisUp_Q1 := TRUE;
+ELSE
+	VGR.QX_VGR_M1_VerticalAxisUp_Q1 := FALSE;
+	VGR.QX_VGR_M1_VerticalAxisDown_Q2 := FALSE;
+	VGR.QW_VGR_PWM_Vertical_Control := 0;
+VGR.QW_VGR_PWM_Vertical_M1 := 0;
+END_IF
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="35" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="19" Count="5" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="34" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
