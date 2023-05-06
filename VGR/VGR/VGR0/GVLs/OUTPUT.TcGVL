@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="OUTPUT" Id="{a24205b5-dca9-4391-8759-96e22656f2f5}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+QX_VGR_SetCounterVertical 			AT %Q* : BOOL;
+QX_VGR_SetCounterHorizontal 		AT %Q* : BOOL;
+QX_VGR_SetCounterRotate 			AT %Q* : BOOL;
+
+QW_VGR_SetCounterValueVertical 		AT %Q* : UINT;
+QW_VGR_SetCounterValueRotate 		AT %Q* : UINT;
+QW_VGR_SetCounterValueHorizontal 	AT %Q* : UINT;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_Axis" Id="{20dd161e-bcb1-443e-8e84-2ba1c8fdc32a}">
+    <Declaration><![CDATA[TYPE ST_Axis :
+STRUCT
+	uiCounterValue				  		: UINT;
+	bSetCounter				 			: BOOL;
+	uiSetCounterValue			 		: UINT := 0;
+	iControl 							: INT; //VGR = PWM Motor M1 vertical axis enable at 10#32
+	iPWM				 				: INT; //VGR = PWM Motor M1 vertical axis
+	bJogMinus					 		: BOOL; //VGR - Q1 = Motor M1 vertical axis up
+	bJogPlus					 		: BOOL; //VGR - Q2 = Motor M1 vertical axis down
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

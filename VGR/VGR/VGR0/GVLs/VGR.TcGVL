@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="VGR" Id="{ffe1a49e-c407-4743-a7ea-25769673609f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+IX_VGR_RefSwitchVerticalAxis_I1 AT %I*: BOOL; //VGR - I1 = Reference switch vertical axis
+IX_VGR_RefSwitchHorizontalAxis_I2 AT %I*: BOOL;//VGR - I2 = Reference switch horizontal axis
+IX_VGR_RefSwitchRotate_I3 AT %I*: BOOL; //VGR - I3 = Reference switch rotate      
+
+QX_VGR_M1_VerticalAxisUp_Q1 AT %Q* : BOOL; //VGR - Q1 = Motor M1 vertical axis up
+QX_VGR_M1_VerticalAxisDown_Q2 AT %Q* : BOOL; //VGR - Q2 = Motor M1 vertical axis down
+QX_VGR_M2_HorizontalAxisBackward_Q3 AT %Q* : BOOL; //VGR - Q3 = Motor M2 horizontal axis backward
+QX_VGR_M2_HorizontalAxisForward_Q4 AT %Q* : BOOL; //VGR - Q4 = Motor M2 horizontal axis forward
+QX_VGR_M3_RotateClockwise_Q5 AT %Q* : BOOL; //VGR - Q5 = Motor M3 rotate clockwise
+QX_VGR_M3_RotateCounterclockwise_Q6 AT %Q* : BOOL; //VGR - Q6 = Motor M3 rotate counterclockwise
+QX_VGR_Compressor_Q7 AT %Q* : BOOL; //VGR - Q7 = Compressor
+QX_VGR_ValveVacuum_Q8 AT %Q* : BOOL; //VGR - Q8 = Valve vacuum
+QW_VGR_PWM_Vertical_Control AT %Q* : INT; //VGR = PWM Motor M1 vertical axis enable
+QW_VGR_PWM_Vertical_M1 AT %Q* : INT; //VGR = PWM Motor M1 vertical axis
+QW_VGR_PWM_Horizontal_Control AT %Q* : INT; //VGR = PWM Motor M2 horizontal axis enable
+QW_VGR_PWM_Horizontal_M2 AT %Q* : INT; //VGR = PWM Motor M2 horizontal axis
+QW_VGR_PWM_Rotate_Control AT %Q* : INT; //VGR = PWM Motor M3 rotate axis enable
+QW_VGR_PWM_Rotate_M3 AT %Q* : INT; //VGR = PWM Motor M3 rotate axis 	
+
+(* UNUSED *)
+IX_VGR_EncoderVerticalAxisImp1_B1 AT %I* : BOOL; //VGR - Vertical axis encoder - Channel A
+IX_VGR_EncoderVerticalAxisImp2_B2 AT %I* : BOOL; //VGR - Vertical axis encoder - Channel B
+IX_VGR_EncoderHorizontalAxisImp1_B3 AT %I* : BOOL; //VGR - Horizontal axis encoder - Channel A
+IX_VGR_EncoderHorizontalAxisImp2_B4 AT %I* : BOOL; //VGR - Horizontal axis encoder - Channel B
+IX_VGR_EncoderRotateImp1_B5 AT %I* : BOOL; //VGR - Rotational axis encoder - Channel A
+IX_VGR_EncoderRotateImp2_B6 AT %I* : BOOL; //VGR - Rotational axis encoder - Channel B
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

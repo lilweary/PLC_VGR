@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="AxisReferencing" Id="{d3500eca-3f04-4172-914d-e4ec9b439d98}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AxisReferencing
+VAR_IN_OUT
+	ReferenceSwitch:BOOL;
+	AxisPlus:BOOL;
+	AxisMinus:BOOL;
+	Control:INT;
+	SpeedPWM:INT;
+	SetCounter:BOOL;
+END_VAR
+VAR_OUTPUT
+	ReferenceOkay:BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF ReferenceSwitch THEN
+	AxisMinus := FALSE;
+	AxisPlus := FALSE;
+	Control := 0;
+	SpeedPWM := 0;
+	SetCounter := TRUE;
+	ReferenceOkay:= TRUE;
+ELSE
+	AxisMinus := TRUE;
+	AxisPlus := FALSE;
+	Control := 32;
+	SpeedPWM := 5000;
+	SetCounter := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="AxisReferencing">
+      <LineId Id="10" Count="5" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="17" Count="4" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

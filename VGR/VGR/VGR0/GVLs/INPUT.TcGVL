@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="INPUT" Id="{317528c4-17d9-4d6e-84cc-04007afaa00c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+IX_START AT %I*: BOOL;
+IX_STOP AT %I*:	BOOL;
+IW_VGR_CounterValueVertical  		AT %I* : UINT;
+IW_VGR_CounterValueHorizontal  		AT %I* : UINT;
+IW_VGR_CounterValueRotate  			AT %I* : UINT;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

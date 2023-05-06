@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Task Name="VGR_10MS" Id="{1e8d78cf-d4a9-4aa4-b1ea-8f4d1d0d356b}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>22</Priority>
+    <PouCall>
+      <Name>MAIN_10MS</Name>
+    </PouCall>
+    <TaskFBGuid>{05a92988-ec26-44c9-8718-aa841bf85dac}</TaskFBGuid>
+    <Fb_init>{e997c706-46ed-4691-9958-334215c456a1}</Fb_init>
+    <Fb_exit>{0a394727-bce1-4610-bd45-e6c14242903e}</Fb_exit>
+    <CycleUpdate>{96470248-3503-4c60-8539-153ea57c38e6}</CycleUpdate>
+    <PostCycleUpdate>{81608321-2a75-4c0a-a48b-538f5359d0a6}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

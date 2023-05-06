@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="Settings" Id="{fe52febc-a49a-48b1-bee6-7745a1b280f2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bUseAxisVertical : BOOL := TRUE;
+	bUseAxisHorizontal : BOOL := TRUE;
+	bUseAxisRotate : BOOL := TRUE;
+
+	pickPositionVertical : UINT := 500;
+	pickPositionHorizontal : UINT := 500;
+	pickPositionRotation : UINT := 500;
+	
+	placePositionVertical : UINT := 100;
+	placePositionHorizontal : UINT := 100;
+	placePositionRotation : UINT := 200;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

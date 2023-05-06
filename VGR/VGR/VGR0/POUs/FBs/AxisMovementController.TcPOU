@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="AxisMovementController" Id="{02119a59-e7c7-45d5-af1e-b3ec940422ef}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AxisMovementController
+VAR_INPUT
+	tolerance: UINT;
+	AxisMinus : BOOL;
+	AxisPlus: BOOL;
+	Control: INT;
+	SpeedPWM:INT;
+	currentPosition : UINT;
+	requiredPosition : UINT;
+END_VAR
+VAR_OUTPUT
+	InPosition:BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF  AboutEqual(
+	IN1:= currentPosition,
+	IN2:= requiredPosition,
+	Tolerance:= tolerance
+)
+ THEN
+	AxisMinus := FALSE;
+	AxisPlus := FALSE;
+	Control := 0;
+	SpeedPWM := 0;
+	InPosition := TRUE;
+ELSIF currentPosition > requiredPosition AND NOT InPosition THEN
+	AxisMinus := TRUE;
+	AxisPlus := FALSE;
+	Control:= 32;
+	SpeedPWM := 5000;
+	InPosition := FALSE;
+ELSIF currentPosition < requiredPosition AND NOT InPosition THEN
+	AxisMinus := FALSE;
+	AxisPlus := TRUE;
+	Control := 32;
+	SpeedPWM := 5000;
+	InPosition := FALSE;
+ELSE
+	AxisMinus := FALSE;
+	AxisPlus := FALSE;
+	Control := 0;
+	SpeedPWM := 0;
+	InPosition := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="AxisMovementController">
+      <LineId Id="113" Count="28" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

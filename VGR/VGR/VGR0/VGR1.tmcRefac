@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedSymbol>
+      <Type guid="fe52febc-a49a-48b1-bee6-7745a1b280f2">Settings</Type>
+      <From>bEnableAxisVertical</From>
+      <To>bUseAxisVertical</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="fe52febc-a49a-48b1-bee6-7745a1b280f2">Settings</Type>
+      <From>bEnableAxisHorizontal</From>
+      <To>bUseAxisHorizontal</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="fe52febc-a49a-48b1-bee6-7745a1b280f2">Settings</Type>
+      <From>bEnableAxisRotate</From>
+      <To>bUseAxisRotate</To>
+    </RenamedSymbol>
+  </Renames>
+</Refactors>
