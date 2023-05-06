@@ -61,10 +61,19 @@
     <Compile Include="POUs\FBs\EncoderSignalProcessor.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FBs\Motor_Direction.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\Motor_Enable.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN_10MS.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN_1MS.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Motor_move.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\StateMachine.TcPOU">
