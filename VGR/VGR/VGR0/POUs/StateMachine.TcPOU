@@ -3,8 +3,15 @@
   <POU Name="StateMachine" Id="{102b109e-5d65-44f6-9162-be32ce46a64a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM StateMachine
 VAR
+	tolerance:uint:=20;
 END_VAR
-]]></Declaration>
+
+VAR_INPUT
+	Desired_Motor_Speed: INT;
+	Desired_VerticalPosition: UINT;
+	Desired_HorizontalPosition: UINT;
+	Desired_RotationalPosition: UINT;
+END_VAR]]></Declaration>
     <Implementation>
       <NWL>
         <XmlArchive>
@@ -24,7 +31,7 @@ END_VAR
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
-                      <v n="BoxType">"IdleCommands"</v>
+                      <v n="BoxType">"EXECUTE"</v>
                       <o n="Instance" t="Operand">
                         <n n="Operand" />
                         <v n="Type">""</v>
@@ -39,7 +46,7 @@ END_VAR
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">7L</v>
+                        <v n="Id">254L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -69,7 +76,7 @@ END_VAR
                             <v n="LValue">false</v>
                             <v n="Boolean">false</v>
                             <v n="IsInstance">true</v>
-                            <v n="Id">9L</v>
+                            <v n="Id">132L</v>
                           </o>
                           <o n="OutputItems" t="OutputItemList">
                             <l2 n="OutputItems" />
@@ -302,7 +309,7 @@ END_VAR
                           <n n="STSnippet" />
                           <v n="ContainsExtensibleInputs">false</v>
                           <v n="ProvidesSTSnippet">false</v>
-                          <v n="Id">10L</v>
+                          <v n="Id">133L</v>
                         </o>
                       </l2>
                       <o n="InputParam" t="ParamList">
@@ -321,13 +328,56 @@ END_VAR
                           <v>BOOL</v>
                         </l2>
                       </o>
-                      <v n="CallType" t="Operator">Action</v>
+                      <v n="CallType" t="Operator">None</v>
                       <v n="EN">true</v>
                       <v n="ENO">true</v>
-                      <n n="STSnippet" />
+                      <o n="STSnippet" t="STSnippet">
+                        <o n="STSnippet" t="STImplementationObject">
+                          <o n="TextDocument" t="TextDocument">
+                            <a n="TextLines" cet="TextLine">
+                              <o>
+                                <v n="Id">255L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed, Desired_Position:= Desired_HorizontalPosition, tolerance:=20);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">256L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">257L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">258L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=20);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">259L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">260L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">247L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=20);"</v>
+                              </o>
+                            </a>
+                          </o>
+                        </o>
+                        <v n="Id">261L</v>
+                      </o>
                       <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">8L</v>
+                      <v n="ProvidesSTSnippet">true</v>
+                      <v n="Id">262L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />
@@ -344,7 +394,7 @@ END_VAR
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
-                      <v n="BoxType">"NewHomingCommands"</v>
+                      <v n="BoxType">"EXECUTE"</v>
                       <o n="Instance" t="Operand">
                         <n n="Operand" />
                         <v n="Type">""</v>
@@ -359,7 +409,7 @@ END_VAR
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">26L</v>
+                        <v n="Id">340L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -641,13 +691,66 @@ END_VAR
                           <v>BOOL</v>
                         </l2>
                       </o>
-                      <v n="CallType" t="Operator">Action</v>
+                      <v n="CallType" t="Operator">None</v>
                       <v n="EN">true</v>
                       <v n="ENO">true</v>
-                      <n n="STSnippet" />
+                      <o n="STSnippet" t="STSnippet">
+                        <o n="STSnippet" t="STImplementationObject">
+                          <o n="TextDocument" t="TextDocument">
+                            <a n="TextLines" cet="TextLine">
+                              <o>
+                                <v n="Id">341L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">342L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">343L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">344L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">345L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">346L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">347L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">348L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">331L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                            </a>
+                          </o>
+                        </o>
+                        <v n="Id">349L</v>
+                      </o>
                       <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">27L</v>
+                      <v n="ProvidesSTSnippet">true</v>
+                      <v n="Id">350L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />
@@ -664,7 +767,7 @@ END_VAR
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
-                      <v n="BoxType">"NewPickCommands"</v>
+                      <v n="BoxType">"EXECUTE"</v>
                       <o n="Instance" t="Operand">
                         <n n="Operand" />
                         <v n="Type">""</v>
@@ -679,7 +782,7 @@ END_VAR
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">45L</v>
+                        <v n="Id">318L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -1056,13 +1159,71 @@ END_VAR
                           <v>BOOL</v>
                         </l2>
                       </o>
-                      <v n="CallType" t="Operator">Action</v>
+                      <v n="CallType" t="Operator">None</v>
                       <v n="EN">true</v>
                       <v n="ENO">true</v>
-                      <n n="STSnippet" />
+                      <o n="STSnippet" t="STSnippet">
+                        <o n="STSnippet" t="STImplementationObject">
+                          <o n="TextDocument" t="TextDocument">
+                            <a n="TextLines" cet="TextLine">
+                              <o>
+                                <v n="Id">319L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">320L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">321L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=20);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">322L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">323L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">324L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=20);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">325L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">326L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">327L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=20);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">308L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			"</v>
+                              </o>
+                            </a>
+                          </o>
+                        </o>
+                        <v n="Id">328L</v>
+                      </o>
                       <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">46L</v>
+                      <v n="ProvidesSTSnippet">true</v>
+                      <v n="Id">329L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />
@@ -1079,7 +1240,7 @@ END_VAR
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
-                      <v n="BoxType">"NewPlaceCommands"</v>
+                      <v n="BoxType">"EXECUTE"</v>
                       <o n="Instance" t="Operand">
                         <n n="Operand" />
                         <v n="Type">""</v>
@@ -1094,7 +1255,7 @@ END_VAR
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">74L</v>
+                        <v n="Id">376L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -1376,13 +1537,66 @@ END_VAR
                           <v>BOOL</v>
                         </l2>
                       </o>
-                      <v n="CallType" t="Operator">Action</v>
+                      <v n="CallType" t="Operator">None</v>
                       <v n="EN">true</v>
                       <v n="ENO">true</v>
-                      <n n="STSnippet" />
+                      <o n="STSnippet" t="STSnippet">
+                        <o n="STSnippet" t="STImplementationObject">
+                          <o n="TextDocument" t="TextDocument">
+                            <a n="TextLines" cet="TextLine">
+                              <o>
+                                <v n="Id">377L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">378L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">379L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">380L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">381L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">382L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">383L</v>
+                                <n n="Tag" />
+                                <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">384L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
+                              </o>
+                              <o>
+                                <v n="Id">367L</v>
+                                <n n="Tag" />
+                                <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                            </a>
+                          </o>
+                        </o>
+                        <v n="Id">385L</v>
+                      </o>
                       <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">75L</v>
+                      <v n="ProvidesSTSnippet">true</v>
+                      <v n="Id">386L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />
@@ -1843,7 +2057,11 @@ END_VAR
             <Type n="Operator">{bffb3c53-f105-4e85-aba2-e30df579d75f}</Type>
             <Type n="OutputItemList">{f40d3e09-c02c-4522-a88c-dac23558cfc4}</Type>
             <Type n="ParamList">{71496971-9e0c-4677-a832-b9583b571130}</Type>
+            <Type n="STImplementationObject">{3b83b776-fb25-43b8-99f2-3c507c9143fc}</Type>
             <Type n="String">System.String</Type>
+            <Type n="STSnippet">{b2131366-6917-4304-87a9-64c0585560a8}</Type>
+            <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
+            <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
           </TypeList>
         </XmlArchive>
       </NWL>
