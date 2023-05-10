@@ -872,7 +872,7 @@ END_VAR
                           <v n="LValue">false</v>
                           <v n="Boolean">false</v>
                           <v n="IsInstance">true</v>
-                          <v n="Id">637L</v>
+                          <v n="Id">692L</v>
                         </o>
                         <o n="OutputItems" t="OutputItemList">
                           <l2 n="OutputItems" cet="Operand">
@@ -1045,13 +1045,13 @@ END_VAR
                         </l2>
                         <o n="InputParam" t="ParamList">
                           <l2 n="Names" cet="String">
-                            <v>RefLimitSwitch</v>
+                            <v>Disable_motor</v>
                             <v>DesiredSpeedPWM</v>
                             <v>PositiveDirection</v>
                             <v>NegativeDirection</v>
                           </l2>
                           <l2 n="Types" cet="String">
-                            <v>INT</v>
+                            <v>BOOL</v>
                             <v>INT</v>
                             <v>BOOL</v>
                             <v>BOOL</v>
@@ -1073,7 +1073,7 @@ END_VAR
                         <n n="STSnippet" />
                         <v n="ContainsExtensibleInputs">false</v>
                         <v n="ProvidesSTSnippet">false</v>
-                        <v n="Id">638L</v>
+                        <v n="Id">693L</v>
                       </o>
                       <v n="Id">648L</v>
                     </o>

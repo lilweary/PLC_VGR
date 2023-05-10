@@ -3,7 +3,17 @@
   <POU Name="StateMachine" Id="{102b109e-5d65-44f6-9162-be32ce46a64a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM StateMachine
 VAR
-	tolerance:uint:=20;
+	tolerance:UINT:=20;
+	RS_Idle: RS;
+	RS_Homing: RS;
+	RS_place:RS;
+	RS_Pick:RS;
+	SR_ESTOP:SR;
+	IW_VGR_CounterValueRotate: INT;
+	set: INT;
+	currentPosition: UINT;
+	bValveClosed: BOOL;
+	bValveOpen: BOOL;
 END_VAR
 
 VAR_INPUT
@@ -11,6 +21,13 @@ VAR_INPUT
 	Desired_VerticalPosition: UINT;
 	Desired_HorizontalPosition: UINT;
 	Desired_RotationalPosition: UINT;
+END_VAR
+VAR_OUTPUT
+	bStateIdle: BOOL;
+	bStateHoming: BOOL;
+	bStatePick: BOOL;
+	bStatePlace: BOOL;
+	bStateEStop: BOOL;
 END_VAR]]></Declaration>
     <Implementation>
       <NWL>
@@ -143,27 +160,91 @@ END_VAR]]></Declaration>
                                   <v n="Extensible">false</v>
                                 </o>
                                 <n n="InputFlags" />
-                                <l2 n="InputItems">
-                                  <o t="BoxTreeOperand">
-                                    <o n="Operand" t="Operand">
-                                      <v n="Operand">"bValveClosed"</v>
-                                      <v n="Type">"BOOL"</v>
+                                <l2 n="InputItems" cet="BoxTreeBox">
+                                  <o>
+                                    <v n="BoxType">"AND"</v>
+                                    <o n="Instance" t="Operand">
+                                      <n n="Operand" />
+                                      <v n="Type">""</v>
                                       <v n="Comment">""</v>
                                       <v n="SymbolComment">""</v>
                                       <v n="Address">""</v>
                                       <o n="Flags" t="Flags">
                                         <v n="Flags">0</v>
-                                        <v n="Fixed">true</v>
+                                        <v n="Fixed">false</v>
                                         <v n="Extensible">false</v>
                                       </o>
                                       <v n="LValue">false</v>
-                                      <v n="Boolean">true</v>
-                                      <v n="IsInstance">false</v>
-                                      <v n="Id">14L</v>
+                                      <v n="Boolean">false</v>
+                                      <v n="IsInstance">true</v>
+                                      <v n="Id">402L</v>
                                     </o>
-                                    <v n="Id">13L</v>
+                                    <o n="OutputItems" t="OutputItemList">
+                                      <l2 n="OutputItems" />
+                                    </o>
+                                    <o n="Flags" t="Flags">
+                                      <v n="Flags">0</v>
+                                      <v n="Fixed">false</v>
+                                      <v n="Extensible">false</v>
+                                    </o>
+                                    <n n="InputFlags" />
+                                    <l2 n="InputItems" cet="BoxTreeOperand">
+                                      <o>
+                                        <o n="Operand" t="Operand">
+                                          <v n="Operand">"INPUT.IX_START"</v>
+                                          <v n="Type">"BOOL"</v>
+                                          <v n="Comment">""</v>
+                                          <v n="SymbolComment">""</v>
+                                          <v n="Address">""</v>
+                                          <o n="Flags" t="Flags">
+                                            <v n="Flags">1</v>
+                                            <v n="Fixed">true</v>
+                                            <v n="Extensible">false</v>
+                                          </o>
+                                          <v n="LValue">false</v>
+                                          <v n="Boolean">true</v>
+                                          <v n="IsInstance">false</v>
+                                          <v n="Id">405L</v>
+                                        </o>
+                                        <v n="Id">404L</v>
+                                      </o>
+                                      <o>
+                                        <o n="Operand" t="Operand">
+                                          <v n="Operand">"bValveClosed"</v>
+                                          <v n="Type">"BOOL"</v>
+                                          <v n="Comment">""</v>
+                                          <v n="SymbolComment">""</v>
+                                          <v n="Address">""</v>
+                                          <o n="Flags" t="Flags">
+                                            <v n="Flags">0</v>
+                                            <v n="Fixed">true</v>
+                                            <v n="Extensible">false</v>
+                                          </o>
+                                          <v n="LValue">false</v>
+                                          <v n="Boolean">true</v>
+                                          <v n="IsInstance">false</v>
+                                          <v n="Id">14L</v>
+                                        </o>
+                                        <v n="Id">13L</v>
+                                      </o>
+                                    </l2>
+                                    <o n="InputParam" t="ParamList">
+                                      <l2 n="Names" />
+                                      <l2 n="Types" />
+                                    </o>
+                                    <o n="OutputParam" t="ParamList">
+                                      <l2 n="Names" />
+                                      <l2 n="Types" />
+                                    </o>
+                                    <v n="CallType" t="Operator">And</v>
+                                    <n n="EN" />
+                                    <n n="ENO" />
+                                    <n n="STSnippet" />
+                                    <v n="ContainsExtensibleInputs">false</v>
+                                    <v n="ProvidesSTSnippet">false</v>
+                                    <v n="Id">403L</v>
                                   </o>
-                                  <o t="BoxTreeBox">
+                                  <o>
                                     <v n="BoxType">"OR"</v>
                                     <o n="Instance" t="Operand">
                                       <n n="Operand" />
@@ -277,7 +358,7 @@ END_VAR]]></Declaration>
                             </o>
                             <o t="BoxTreeOperand">
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"bStateEStop"</v>
+                                <v n="Operand">"INPUT.IX_STOP"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -336,32 +417,32 @@ END_VAR]]></Declaration>
                           <o n="TextDocument" t="TextDocument">
                             <a n="TextLines" cet="TextLine">
                               <o>
-                                <v n="Id">255L</v>
+                                <v n="Id">406L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed, Desired_Position:= Desired_HorizontalPosition, tolerance:=20);"</v>
                               </o>
                               <o>
-                                <v n="Id">256L</v>
+                                <v n="Id">407L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">257L</v>
+                                <v n="Id">408L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">258L</v>
+                                <v n="Id">409L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=20);"</v>
                               </o>
                               <o>
-                                <v n="Id">259L</v>
+                                <v n="Id">410L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">260L</v>
+                                <v n="Id">411L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
                               </o>
@@ -556,7 +637,7 @@ END_VAR]]></Declaration>
                                       </o>
                                       <o>
                                         <o n="Operand" t="Operand">
-                                          <v n="Operand">"StartStop.IX_START"</v>
+                                          <v n="Operand">"INPUT.IX_START"</v>
                                           <v n="Type">"BOOL"</v>
                                           <v n="Comment">""</v>
                                           <v n="SymbolComment">""</v>
@@ -640,7 +721,7 @@ END_VAR]]></Declaration>
                             </o>
                             <o t="BoxTreeOperand">
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"bStateEStop"</v>
+                                <v n="Operand">"INPUT.IX_STOP"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -948,25 +1029,6 @@ END_VAR]]></Declaration>
                                       </o>
                                       <o>
                                         <o n="Operand" t="Operand">
-                                          <v n="Operand">"AxisReferencing_Rotational.ReferenceOkay"</v>
-                                          <v n="Type">"BOOL"</v>
-                                          <v n="Comment">""</v>
-                                          <v n="SymbolComment">""</v>
-                                          <v n="Address">""</v>
-                                          <o n="Flags" t="Flags">
-                                            <v n="Flags">0</v>
-                                            <v n="Fixed">true</v>
-                                            <v n="Extensible">false</v>
-                                          </o>
-                                          <v n="LValue">false</v>
-                                          <v n="Boolean">true</v>
-                                          <v n="IsInstance">false</v>
-                                          <v n="Id">58L</v>
-                                        </o>
-                                        <v n="Id">57L</v>
-                                      </o>
-                                      <o>
-                                        <o n="Operand" t="Operand">
                                           <v n="Operand">"VGR.IX_VGR_RefSwitchHorizontalAxis_I2"</v>
                                           <v n="Type">"BOOL"</v>
                                           <v n="Comment">""</v>
@@ -986,25 +1048,6 @@ END_VAR]]></Declaration>
                                       </o>
                                       <o>
                                         <o n="Operand" t="Operand">
-                                          <v n="Operand">"AxisReferencing_Horizontal.ReferenceOkay"</v>
-                                          <v n="Type">"BOOL"</v>
-                                          <v n="Comment">""</v>
-                                          <v n="SymbolComment">""</v>
-                                          <v n="Address">""</v>
-                                          <o n="Flags" t="Flags">
-                                            <v n="Flags">0</v>
-                                            <v n="Fixed">true</v>
-                                            <v n="Extensible">false</v>
-                                          </o>
-                                          <v n="LValue">false</v>
-                                          <v n="Boolean">true</v>
-                                          <v n="IsInstance">false</v>
-                                          <v n="Id">62L</v>
-                                        </o>
-                                        <v n="Id">61L</v>
-                                      </o>
-                                      <o>
-                                        <o n="Operand" t="Operand">
                                           <v n="Operand">"VGR.IX_VGR_RefSwitchVerticalAxis_I1"</v>
                                           <v n="Type">"BOOL"</v>
                                           <v n="Comment">""</v>
@@ -1021,25 +1064,6 @@ END_VAR]]></Declaration>
                                           <v n="Id">64L</v>
                                         </o>
                                         <v n="Id">63L</v>
-                                      </o>
-                                      <o>
-                                        <o n="Operand" t="Operand">
-                                          <v n="Operand">"AxisReferencing_Vertical.ReferenceOkay"</v>
-                                          <v n="Type">"BOOL"</v>
-                                          <v n="Comment">""</v>
-                                          <v n="SymbolComment">""</v>
-                                          <v n="Address">""</v>
-                                          <o n="Flags" t="Flags">
-                                            <v n="Flags">0</v>
-                                            <v n="Fixed">true</v>
-                                            <v n="Extensible">false</v>
-                                          </o>
-                                          <v n="LValue">false</v>
-                                          <v n="Boolean">true</v>
-                                          <v n="IsInstance">false</v>
-                                          <v n="Id">66L</v>
-                                        </o>
-                                        <v n="Id">65L</v>
                                       </o>
                                     </l2>
                                     <o n="InputParam" t="ParamList">
@@ -1167,47 +1191,47 @@ END_VAR]]></Declaration>
                           <o n="TextDocument" t="TextDocument">
                             <a n="TextLines" cet="TextLine">
                               <o>
-                                <v n="Id">319L</v>
+                                <v n="Id">468L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">320L</v>
+                                <v n="Id">469L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">321L</v>
+                                <v n="Id">470L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=20);"</v>
                               </o>
                               <o>
-                                <v n="Id">322L</v>
+                                <v n="Id">471L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">323L</v>
+                                <v n="Id">472L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">324L</v>
+                                <v n="Id">473L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=20);"</v>
                               </o>
                               <o>
-                                <v n="Id">325L</v>
+                                <v n="Id">474L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">326L</v>
+                                <v n="Id">475L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">327L</v>
+                                <v n="Id">476L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=20);"</v>
                               </o>
@@ -1255,7 +1279,7 @@ END_VAR]]></Declaration>
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">376L</v>
+                        <v n="Id">510L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -1486,7 +1510,7 @@ END_VAR]]></Declaration>
                             </o>
                             <o t="BoxTreeOperand">
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"bStateEStop"</v>
+                                <v n="Operand">"INPUT.IX_STOP"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1545,58 +1569,68 @@ END_VAR]]></Declaration>
                           <o n="TextDocument" t="TextDocument">
                             <a n="TextLines" cet="TextLine">
                               <o>
-                                <v n="Id">377L</v>
+                                <v n="Id">511L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisHorizontal(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">378L</v>
+                                <v n="Id">512L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">379L</v>
+                                <v n="Id">513L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
                               </o>
                               <o>
-                                <v n="Id">380L</v>
+                                <v n="Id">514L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisVertical(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">381L</v>
+                                <v n="Id">515L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">382L</v>
+                                <v n="Id">516L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
                               </o>
                               <o>
-                                <v n="Id">383L</v>
+                                <v n="Id">517L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisRotate(Desired_Speed:=Desired_Motor_Speed,"</v>
                               </o>
                               <o>
-                                <v n="Id">384L</v>
+                                <v n="Id">518L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
                               </o>
                               <o>
-                                <v n="Id">367L</v>
+                                <v n="Id">519L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
+                              </o>
+                              <o>
+                                <v n="Id">530L</v>
+                                <n n="Tag" />
+                                <v n="Text">"VGR.QX_VGR_ValveVacuum_Q8:=TRUE;"</v>
+                              </o>
+                              <o>
+                                <v n="Id">529L</v>
+                                <n n="Tag" />
+                                <v n="Text">"	"</v>
                               </o>
                             </a>
                           </o>
                         </o>
-                        <v n="Id">385L</v>
+                        <v n="Id">520L</v>
                       </o>
                       <v n="ContainsExtensibleInputs">false</v>
                       <v n="ProvidesSTSnippet">true</v>
-                      <v n="Id">386L</v>
+                      <v n="Id">521L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />
@@ -1639,7 +1673,7 @@ END_VAR]]></Declaration>
                         <v n="Extensible">false</v>
                       </o>
                       <o n="RValue" t="BoxTreeBox">
-                        <v n="BoxType">"IdleCommands"</v>
+                        <v n="BoxType">"EXECUTE"</v>
                         <o n="Instance" t="Operand">
                           <n n="Operand" />
                           <v n="Type">""</v>
@@ -1654,7 +1688,7 @@ END_VAR]]></Declaration>
                           <v n="LValue">false</v>
                           <v n="Boolean">false</v>
                           <v n="IsInstance">true</v>
-                          <v n="Id">93L</v>
+                          <v n="Id">433L</v>
                         </o>
                         <o n="OutputItems" t="OutputItemList">
                           <l2 n="OutputItems">
@@ -1700,7 +1734,7 @@ END_VAR]]></Declaration>
                             <l2 n="InputItems" cet="BoxTreeOperand">
                               <o>
                                 <o n="Operand" t="Operand">
-                                  <v n="Operand">"StartStop.IX_STOP"</v>
+                                  <v n="Operand">"INPUT.IX_STOP"</v>
                                   <v n="Type">"BOOL"</v>
                                   <v n="Comment">""</v>
                                   <v n="SymbolComment">""</v>
@@ -1719,7 +1753,7 @@ END_VAR]]></Declaration>
                               </o>
                               <o>
                                 <o n="Operand" t="Operand">
-                                  <v n="Operand">"StartStop.IX_START"</v>
+                                  <v n="Operand">"INPUT.IX_START"</v>
                                   <v n="Type">"BOOL"</v>
                                   <v n="Comment">""</v>
                                   <v n="SymbolComment">""</v>
@@ -1780,13 +1814,66 @@ END_VAR]]></Declaration>
                             <v>BOOL</v>
                           </l2>
                         </o>
-                        <v n="CallType" t="Operator">Action</v>
+                        <v n="CallType" t="Operator">None</v>
                         <v n="EN">true</v>
                         <v n="ENO">true</v>
-                        <n n="STSnippet" />
+                        <o n="STSnippet" t="STSnippet">
+                          <o n="STSnippet" t="STImplementationObject">
+                            <o n="TextDocument" t="TextDocument">
+                              <a n="TextLines" cet="TextLine">
+                                <o>
+                                  <v n="Id">434L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"AxisHorizontal(Desired_Speed:=0,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">435L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			Desired_Position:= Desired_HorizontalPosition,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">436L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			tolerance:=tolerance);"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">437L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"AxisVertical(Desired_Speed:=0,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">438L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			Desired_Position:= Desired_VerticalPosition,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">439L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			tolerance:=tolerance);"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">440L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"AxisRotate(Desired_Speed:=0,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">441L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			Desired_Position:= Desired_RotationalPosition,"</v>
+                                </o>
+                                <o>
+                                  <v n="Id">424L</v>
+                                  <n n="Tag" />
+                                  <v n="Text">"			tolerance:=tolerance);"</v>
+                                </o>
+                              </a>
+                            </o>
+                          </o>
+                          <v n="Id">442L</v>
+                        </o>
                         <v n="ContainsExtensibleInputs">false</v>
-                        <v n="ProvidesSTSnippet">false</v>
-                        <v n="Id">94L</v>
+                        <v n="ProvidesSTSnippet">true</v>
+                        <v n="Id">443L</v>
                       </o>
                       <v n="Id">102L</v>
                     </o>

@@ -19,9 +19,9 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF  AboutEqual(
-	IN1:= currentPosition,
-	IN2:= requiredPosition,
-	Tolerance:= tolerance
+	uiActual:= currentPosition,
+	uiRequiered:= requiredPosition,
+	uiTolerance:= tolerance
 )
  THEN
 	AxisMinus := FALSE;

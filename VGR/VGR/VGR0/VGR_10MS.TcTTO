@@ -7,6 +7,9 @@
     <PouCall>
       <Name>MAIN_10MS</Name>
     </PouCall>
+    <PouCall>
+      <Name>MAIN</Name>
+    </PouCall>
     <TaskFBGuid>{05a92988-ec26-44c9-8718-aa841bf85dac}</TaskFBGuid>
     <Fb_init>{e997c706-46ed-4691-9958-334215c456a1}</Fb_init>
     <Fb_exit>{0a394727-bce1-4610-bd45-e6c14242903e}</Fb_exit>
