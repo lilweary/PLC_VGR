@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.40">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
@@ -99,7 +99,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{B858DC52-F785-4344-B233-E4FC44100CFD}" Name="vgr" PrjFilePath="vgr\vgr.plcproj" TmcFilePath="vgr\vgr.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="vgr\vgr.tmc" TmcHash="{A3A3C429-C3D9-03BD-AAD9-75920AEC4D4A}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="vgr\vgr.tmc" TmcHash="{3CCEBBE5-9D1A-90CE-A37B-8C3017DBC2B1}">
 					<Name>vgr Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -115,6 +115,14 @@
 						<Var>
 							<Name>Encoder.countEncoderRotate</Name>
 							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>StartStop.IX_START</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>StartStop.IX_STOP</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>VGR.IX_VGR_RefSwitchVerticalAxis_I1</Name>
@@ -159,14 +167,6 @@
 						<Var>
 							<Name>VGR.IX_VGR_EncoderRotateImp2_B6</Name>
 							<Comment><![CDATA[VGR - Rotational axis encoder - Channel B]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>StartStop.IX_START</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>StartStop.IX_STOP</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -284,56 +284,11 @@
 				</Instance>
 			</Project>
 			<Project GUID="{76D38D70-EB6D-404C-BDEA-BE555A944785}" Name="VGR0" PrjFilePath="VGR0\VGR0.plcproj" TmcFilePath="VGR0\VGR0.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{F6609AE9-FD43-DBB9-AD0A-98F7CB884CC6}">
+				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="VGR0\VGR0.tmc" TmcHash="{15391DF0-6E5A-C987-40A5-3125AE422FD2}">
 					<Name>VGR0 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
-					<Vars VarGrpType="1" ContextId="1" AreaNo="16">
-						<Name>VGR_1MS Inputs</Name>
-						<Var>
-							<Name>VGR.IX_VGR_RefSwitchVerticalAxis_I1</Name>
-							<Comment><![CDATA[VGR - I1 = Reference switch vertical axis]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_RefSwitchHorizontalAxis_I2</Name>
-							<Comment><![CDATA[VGR - I2 = Reference switch horizontal axis]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_RefSwitchRotate_I3</Name>
-							<Comment><![CDATA[VGR - I3 = Reference switch rotate      ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderVerticalAxisImp1_B1</Name>
-							<Comment><![CDATA[VGR - Vertical axis encoder - Channel A]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderVerticalAxisImp2_B2</Name>
-							<Comment><![CDATA[VGR - Vertical axis encoder - Channel B]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderHorizontalAxisImp1_B3</Name>
-							<Comment><![CDATA[VGR - Horizontal axis encoder - Channel A]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderHorizontalAxisImp2_B4</Name>
-							<Comment><![CDATA[VGR - Horizontal axis encoder - Channel B]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderRotateImp1_B5</Name>
-							<Comment><![CDATA[VGR - Rotational axis encoder - Channel A]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>VGR.IX_VGR_EncoderRotateImp2_B6</Name>
-							<Comment><![CDATA[VGR - Rotational axis encoder - Channel B]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
+					<Vars VarGrpType="1">
+						<Name>VGR_10MS Inputs</Name>
 						<Var>
 							<Name>INPUT.IX_START</Name>
 							<Type>BOOL</Type>
@@ -354,9 +309,48 @@
 							<Name>INPUT.IW_VGR_CounterValueRotate</Name>
 							<Type>UINT</Type>
 						</Var>
+						<Var>
+							<Name>VGR.IX_VGR_RefSwitchVerticalAxis_I1</Name>
+							<Comment><![CDATA[VGR - I1 = Reference switch vertical axis]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>VGR.IX_VGR_RefSwitchHorizontalAxis_I2</Name>
+							<Comment><![CDATA[VGR - I2 = Reference switch horizontal axis]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>VGR.IX_VGR_RefSwitchRotate_I3</Name>
+							<Comment><![CDATA[VGR - I3 = Reference switch rotate      ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
-					<Vars VarGrpType="2" ContextId="1" AreaNo="17">
-						<Name>VGR_1MS Outputs</Name>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>VGR_10MS Outputs</Name>
+						<Var>
+							<Name>OUTPUT.QX_VGR_SetCounterVertical</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUTPUT.QX_VGR_SetCounterHorizontal</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUTPUT.QX_VGR_SetCounterRotate</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUTPUT.QW_VGR_SetCounterValueVertical</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>OUTPUT.QW_VGR_SetCounterValueRotate</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>OUTPUT.QW_VGR_SetCounterValueHorizontal</Name>
+							<Type>UINT</Type>
+						</Var>
 						<Var>
 							<Name>VGR.QX_VGR_M1_VerticalAxisUp_Q1</Name>
 							<Comment><![CDATA[VGR - Q1 = Motor M1 vertical axis up]]></Comment>
@@ -427,29 +421,38 @@
 							<Comment><![CDATA[VGR = PWM Motor M3 rotate axis 	]]></Comment>
 							<Type>INT</Type>
 						</Var>
+					</Vars>
+					<Vars VarGrpType="1" ContextId="1" AreaNo="16">
+						<Name>VGR_1MS Inputs</Name>
 						<Var>
-							<Name>OUTPUT.QX_VGR_SetCounterVertical</Name>
+							<Name>VGR.IX_VGR_EncoderVerticalAxisImp1_B1</Name>
+							<Comment><![CDATA[VGR - Vertical axis encoder - Channel A]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUTPUT.QX_VGR_SetCounterHorizontal</Name>
+							<Name>VGR.IX_VGR_EncoderVerticalAxisImp2_B2</Name>
+							<Comment><![CDATA[VGR - Vertical axis encoder - Channel B]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUTPUT.QX_VGR_SetCounterRotate</Name>
+							<Name>VGR.IX_VGR_EncoderHorizontalAxisImp1_B3</Name>
+							<Comment><![CDATA[VGR - Horizontal axis encoder - Channel A]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUTPUT.QW_VGR_SetCounterValueVertical</Name>
-							<Type>UINT</Type>
+							<Name>VGR.IX_VGR_EncoderHorizontalAxisImp2_B4</Name>
+							<Comment><![CDATA[VGR - Horizontal axis encoder - Channel B]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUTPUT.QW_VGR_SetCounterValueRotate</Name>
-							<Type>UINT</Type>
+							<Name>VGR.IX_VGR_EncoderRotateImp1_B5</Name>
+							<Comment><![CDATA[VGR - Rotational axis encoder - Channel A]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUTPUT.QW_VGR_SetCounterValueHorizontal</Name>
-							<Type>UINT</Type>
+							<Name>VGR.IX_VGR_EncoderRotateImp2_B6</Name>
+							<Comment><![CDATA[VGR - Rotational axis encoder - Channel B]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Contexts>
@@ -1451,6 +1454,16 @@
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{08502042-0010-0304-4020-500810000403}" Id="#x02030020" Watchdog="04000000040000000400000004000000"/>
+		<OwnerA Name="TIPC^VGR0^VGR0 Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 6 (EL5152)">
+				<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueHorizontal" VarB="ENC Status compact Channel 2^Counter value"/>
+				<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueVertical" VarB="ENC Status compact Channel 1^Counter value"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 7 (EL5152)">
+				<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueRotate" VarB="ENC Status compact Channel 1^Counter value"/>
+			</OwnerB>
+		</OwnerA>
 		<OwnerA Name="TIPC^vgr^vgr Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1809)">
 				<Link VarA="PlcTask Inputs^StartStop.IX_START" VarB="Channel 11^Input"/>
@@ -1480,8 +1493,6 @@
 				<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Rotate_M3" VarB="PWM Control Channel 1^PWM output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 6 (EL5152)">
-				<Link VarA="PlcTask Inputs^Encoder.countEncoderHorizontal" VarB="ENC Status compact Channel 2^Counter value"/>
-				<Link VarA="PlcTask Inputs^Encoder.countEncoderVertical" VarB="ENC Status compact Channel 1^Counter value"/>
 				<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderHorizontalAxisImp1_B3" VarB="ENC Status compact Channel 2^Status^Status of input A"/>
 				<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderHorizontalAxisImp2_B4" VarB="ENC Status compact Channel 2^Status^Status of input B"/>
 				<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderVerticalAxisImp1_B1" VarB="ENC Status compact Channel 1^Status^Status of input A"/>
@@ -1492,7 +1503,6 @@
 				<Link VarA="PlcTask Outputs^Encoder.setCounterVertical" VarB="ENC Control compact Channel 1^Control^Set counter"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 7 (EL5152)">
-				<Link VarA="PlcTask Inputs^Encoder.countEncoderRotate" VarB="ENC Status compact Channel 1^Counter value"/>
 				<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderRotateImp1_B5" VarB="ENC Status compact Channel 1^Status^Status of input A"/>
 				<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderRotateImp2_B6" VarB="ENC Status compact Channel 1^Status^Status of input B"/>
 				<Link VarA="PlcTask Outputs^Encoder.setCounterRotate" VarB="ENC Control compact Channel 1^Control^Set counter"/>

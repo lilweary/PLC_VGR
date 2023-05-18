@@ -6,7 +6,13 @@ VAR_GLOBAL
 	bUseAxisVertical : BOOL := TRUE;
 	bUseAxisHorizontal : BOOL := TRUE;
 	bUseAxisRotate : BOOL := TRUE;
+	
+	CurrentState : STRING ;
 
+	desiredSpeedVertical : INT := 5000;
+	desiredSpeedHorizontal : INT := 5000;
+	desiredSpeedRotation : INT := 5000;
+	
 	pickPositionVertical : UINT := 500;
 	pickPositionHorizontal : UINT := 500;
 	pickPositionRotation : UINT := 500;
