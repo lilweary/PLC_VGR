@@ -4,14 +4,15 @@
     <Declaration><![CDATA[FUNCTION_BLOCK AxisMovementController
 VAR_INPUT
 	tolerance: UINT;
-	AxisMinus : BOOL;
-	AxisPlus: BOOL;
-	Control: INT;
-	SpeedPWM:INT;
+	desiredSpeed: INT;
 	currentPosition : UINT;
 	requiredPosition : UINT;
 END_VAR
 VAR_OUTPUT
+	AxisMinus : BOOL;
+	AxisPlus: BOOL;
+	Control: INT;
+	SpeedPWM:INT;
 	InPosition:BOOL;
 END_VAR
 VAR
@@ -19,9 +20,9 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF  AboutEqual(
-	IN1:= currentPosition,
-	IN2:= requiredPosition,
-	Tolerance:= tolerance
+	uiActual:= currentPosition,
+	uiRequiered:= requiredPosition,
+	uiTolerance:= tolerance
 )
  THEN
 	AxisMinus := FALSE;
@@ -33,13 +34,13 @@ ELSIF currentPosition > requiredPosition AND NOT InPosition THEN
 	AxisMinus := TRUE;
 	AxisPlus := FALSE;
 	Control:= 32;
-	SpeedPWM := 5000;
+	SpeedPWM := desiredSpeed;
 	InPosition := FALSE;
 ELSIF currentPosition < requiredPosition AND NOT InPosition THEN
 	AxisMinus := FALSE;
 	AxisPlus := TRUE;
 	Control := 32;
-	SpeedPWM := 5000;
+	SpeedPWM := desiredSpeed;
 	InPosition := FALSE;
 ELSE
 	AxisMinus := FALSE;

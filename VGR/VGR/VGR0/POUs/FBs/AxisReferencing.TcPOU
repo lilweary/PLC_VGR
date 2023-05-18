@@ -2,15 +2,17 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="AxisReferencing" Id="{d3500eca-3f04-4172-914d-e4ec9b439d98}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK AxisReferencing
-VAR_IN_OUT
+VAR_INPUT
+	referencingSpeed: INT;
 	ReferenceSwitch:BOOL;
+END_VAR
+VAR_OUTPUT
 	AxisPlus:BOOL;
 	AxisMinus:BOOL;
 	Control:INT;
 	SpeedPWM:INT;
+	SetCounterValue: UINT;
 	SetCounter:BOOL;
-END_VAR
-VAR_OUTPUT
 	ReferenceOkay:BOOL;
 END_VAR
 VAR
@@ -28,14 +30,17 @@ ELSE
 	AxisMinus := TRUE;
 	AxisPlus := FALSE;
 	Control := 32;
-	SpeedPWM := 5000;
+	SetCounterValue := 0;
+	SpeedPWM := referencingSpeed;
 	SetCounter := FALSE;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="AxisReferencing">
       <LineId Id="10" Count="5" />
       <LineId Id="29" Count="0" />
-      <LineId Id="17" Count="4" />
+      <LineId Id="17" Count="3" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="21" Count="0" />
       <LineId Id="28" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
