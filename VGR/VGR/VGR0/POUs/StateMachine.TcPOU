@@ -502,7 +502,7 @@ END_VAR
                         <v n="LValue">false</v>
                         <v n="Boolean">false</v>
                         <v n="IsInstance">true</v>
-                        <v n="Id">1240L</v>
+                        <v n="Id">1455L</v>
                       </o>
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems">
@@ -792,63 +792,63 @@ END_VAR
                           <o n="TextDocument" t="TextDocument">
                             <a n="TextLines" cet="TextLine">
                               <o>
-                                <v n="Id">1241L</v>
+                                <v n="Id">1456L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisHorizontal(Desired_Speed:=Settings.desiredSpeedHorizontal,"</v>
                               </o>
                               <o>
-                                <v n="Id">1242L</v>
+                                <v n="Id">1457L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= 0,"</v>
                               </o>
                               <o>
-                                <v n="Id">1243L</v>
+                                <v n="Id">1458L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
                               </o>
                               <o>
-                                <v n="Id">1244L</v>
+                                <v n="Id">1459L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisVertical(Desired_Speed:=Settings.desiredSpeedVertical,"</v>
                               </o>
                               <o>
-                                <v n="Id">1245L</v>
+                                <v n="Id">1460L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= 0,"</v>
                               </o>
                               <o>
-                                <v n="Id">1246L</v>
+                                <v n="Id">1461L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
                               </o>
                               <o>
-                                <v n="Id">1247L</v>
+                                <v n="Id">1462L</v>
                                 <n n="Tag" />
                                 <v n="Text">"AxisRotate(Desired_Speed:= Settings.desiredSpeedRotation,"</v>
                               </o>
                               <o>
-                                <v n="Id">1248L</v>
+                                <v n="Id">1463L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			Desired_Position:= 0,"</v>
                               </o>
                               <o>
-                                <v n="Id">1249L</v>
+                                <v n="Id">1464L</v>
                                 <n n="Tag" />
                                 <v n="Text">"			tolerance:=tolerance);"</v>
                               </o>
                               <o>
-                                <v n="Id">1230L</v>
+                                <v n="Id">1445L</v>
                                 <n n="Tag" />
-                                <v n="Text">"Settings.CurrentState:="HOME";"</v>
+                                <v n="Text">"Settings.CurrentState:='HOME';"</v>
                               </o>
                             </a>
                           </o>
                         </o>
-                        <v n="Id">1250L</v>
+                        <v n="Id">1465L</v>
                       </o>
                       <v n="ContainsExtensibleInputs">false</v>
                       <v n="ProvidesSTSnippet">true</v>
-                      <v n="Id">1251L</v>
+                      <v n="Id">1466L</v>
                     </o>
                   </l2>
                   <l2 n="Connectors" />

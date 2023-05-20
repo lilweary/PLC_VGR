@@ -284,7 +284,7 @@
 				</Instance>
 			</Project>
 			<Project GUID="{76D38D70-EB6D-404C-BDEA-BE555A944785}" Name="VGR0" PrjFilePath="VGR0\VGR0.plcproj" TmcFilePath="VGR0\VGR0.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="VGR0\VGR0.tmc" TmcHash="{15391DF0-6E5A-C987-40A5-3125AE422FD2}">
+				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="VGR0\VGR0.tmc" TmcHash="{AC6A163B-CF8E-6990-5217-ED31E1C15F53}">
 					<Name>VGR0 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">

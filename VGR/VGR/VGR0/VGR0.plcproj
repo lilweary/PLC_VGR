@@ -67,9 +67,6 @@
     <Compile Include="POUs\FBs\Motor_Enable.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\MAIN_10MS.TcPOU">
       <SubType>Code</SubType>
     </Compile>

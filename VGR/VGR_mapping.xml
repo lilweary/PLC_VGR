@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<VarLinks>
+	<OwnerA Name="TIPC^VGR0^VGR0 Instance">
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 6 (EL5152)">
+			<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueHorizontal" VarB="ENC Status compact Channel 2^Counter value"/>
+			<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueVertical" VarB="ENC Status compact Channel 1^Counter value"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 7 (EL5152)">
+			<Link VarA="VGR_10MS Inputs^INPUT.IW_VGR_CounterValueRotate" VarB="ENC Status compact Channel 1^Counter value"/>
+		</OwnerB>
+	</OwnerA>
+	<OwnerA Name="TIPC^vgr^vgr Instance">
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1809)">
+			<Link VarA="PlcTask Inputs^StartStop.IX_START" VarB="Channel 11^Input"/>
+			<Link VarA="PlcTask Inputs^StartStop.IX_STOP" VarB="Channel 10^Input"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_RefSwitchHorizontalAxis_I2" VarB="Channel 2^Input"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_RefSwitchRotate_I3" VarB="Channel 3^Input"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_RefSwitchVerticalAxis_I1" VarB="Channel 1^Input"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 3 (EL2809)">
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_Compressor_Q7" VarB="Channel 7^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M1_VerticalAxisDown_Q2" VarB="Channel 2^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M1_VerticalAxisUp_Q1" VarB="Channel 1^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M2_HorizontalAxisBackward_Q3" VarB="Channel 3^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M2_HorizontalAxisForward_Q4" VarB="Channel 4^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M3_RotateClockwise_Q5" VarB="Channel 5^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_M3_RotateCounterclockwise_Q6" VarB="Channel 6^Output"/>
+			<Link VarA="PlcTask Outputs^VGR.QX_VGR_ValveVacuum_Q8" VarB="Channel 8^Output"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 4 (EL2535-0002)">
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Horizontal_Control" VarB="PWM Control Channel 2^Control"/>
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Horizontal_M2" VarB="PWM Control Channel 2^PWM output"/>
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Vertical_Control" VarB="PWM Control Channel 1^Control"/>
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Vertical_M1" VarB="PWM Control Channel 1^PWM output"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 5 (EL2535-0002)">
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Rotate_Control" VarB="PWM Control Channel 1^Control"/>
+			<Link VarA="PlcTask Outputs^VGR.QW_VGR_PWM_Rotate_M3" VarB="PWM Control Channel 1^PWM output"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 6 (EL5152)">
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderHorizontalAxisImp1_B3" VarB="ENC Status compact Channel 2^Status^Status of input A"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderHorizontalAxisImp2_B4" VarB="ENC Status compact Channel 2^Status^Status of input B"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderVerticalAxisImp1_B1" VarB="ENC Status compact Channel 1^Status^Status of input A"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderVerticalAxisImp2_B2" VarB="ENC Status compact Channel 1^Status^Status of input B"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterHorizontal" VarB="ENC Control compact Channel 2^Control^Set counter"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterValueHorizontal" VarB="ENC Control compact Channel 2^Set counter value"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterValueVertical" VarB="ENC Control compact Channel 1^Set counter value"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterVertical" VarB="ENC Control compact Channel 1^Control^Set counter"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 7 (EL5152)">
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderRotateImp1_B5" VarB="ENC Status compact Channel 1^Status^Status of input A"/>
+			<Link VarA="PlcTask Inputs^VGR.IX_VGR_EncoderRotateImp2_B6" VarB="ENC Status compact Channel 1^Status^Status of input B"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterRotate" VarB="ENC Control compact Channel 1^Control^Set counter"/>
+			<Link VarA="PlcTask Outputs^Encoder.setCounterValueRotate" VarB="ENC Control compact Channel 1^Set counter value"/>
+		</OwnerB>
+	</OwnerA>
+</VarLinks>
